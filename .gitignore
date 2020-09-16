@@ -1,4 +1,6 @@
 nohup.out*
 .env
 composer.lock
-vendor/
+vendor/*
+vendor/**/.git
+vendor/*.git
