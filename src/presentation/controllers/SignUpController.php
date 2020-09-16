@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php declare (strict_types = 1);
 
 namespace presentation\controllers;
 
@@ -9,8 +9,7 @@ final class SignUpController
     public function handle($argument1)
     {
 
-      $app = new \Slim\Psr7\Response(StatusCodeInterface::STATUS_BAD_REQUEST);
-      return $app;
-
+        $app = new \Slim\Psr7\Response(StatusCodeInterface::STATUS_BAD_REQUEST);
+        return $app;
     }
 }
