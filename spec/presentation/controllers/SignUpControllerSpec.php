@@ -3,6 +3,9 @@
 namespace spec\presentation\controllers;
 
 use PhpSpec\ObjectBehavior;
+use presentation\controllers\SignUpController;
+
+require './src/presentation/controllers/SignUpController.php';
 
 class SignUpControllerSpec extends ObjectBehavior
 {
@@ -15,6 +18,7 @@ class SignUpControllerSpec extends ObjectBehavior
       }";
 
       $response = $this->handle($http_request);
-      $response->getStatusCode()->shouldBe(400);
+      $response->shouldHaveJsonKeyWithValue('statusCode',400);
+      $response->shouldHaveJsonKeyWithValue('body','Missing param: name');
     }
 }

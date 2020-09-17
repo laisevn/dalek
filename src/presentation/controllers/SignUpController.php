@@ -2,14 +2,15 @@
 
 namespace presentation\controllers;
 
-use Fig\Http\Message\StatusCodeInterface;
-
-final class SignUpController
+class SignUpController
 {
     public function handle($argument1)
-    {
-
-        $app = new \Slim\Psr7\Response(StatusCodeInterface::STATUS_BAD_REQUEST);
-        return $app;
+    {   
+        $data =  (object) [
+            'statusCode' => 400,
+            'body' => 'Missing param: name',
+        ];
+        $response = json_encode($data);
+        return $response;
     }
 }
