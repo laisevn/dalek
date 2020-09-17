@@ -5,8 +5,8 @@ namespace presentation\controllers;
 class SignUpController
 {
     public function handle($argument1)
-    {   
-        $data =  (object) [
+    {
+        $data = (object) [
             'statusCode' => 400,
             'body' => 'Missing param: name',
         ];
