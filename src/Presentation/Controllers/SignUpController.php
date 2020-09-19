@@ -13,11 +13,14 @@ class SignUpController
     public function handle($http_request)
     {
         $request = json_decode($http_request);
+        $requiredFields = array('name', 'cpf');
 
-        if (empty($request->{'body'}->{'name'})) {
-            $response = BadRequest::bodyJson(new MissingParamError('name'));
-        } elseif (empty($request->{'body'}->{'cpf'})) {
-            $response = BadRequest::bodyJson(new MissingParamError('cpf'));
+        foreach ($requiredFields as $field) 
+        {
+            if (empty($request->{'body'}->{$field}))
+            {
+                $response = BadRequest::bodyJson(new MissingParamError($field));
+            }
         }
                 
         return $response;
