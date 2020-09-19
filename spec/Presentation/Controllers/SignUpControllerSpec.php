@@ -1,8 +1,11 @@
 <?php
 
-namespace spec\presentation\controllers;
+namespace spec\Presentation\Controllers;
 
 use PhpSpec\ObjectBehavior;
+
+require './src/Presentation/Errors/MissignParamError.php';
+require './src/Presentation/Helpers/HttpHelper.php';
 
 class SignUpControllerSpec extends ObjectBehavior
 {

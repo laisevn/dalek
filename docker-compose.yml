@@ -1,17 +1,3 @@
-# web:
-#   image: nginx:latest
-#   ports:
-#       - "8080:80"
-#   volumes:
-#       - ./home/laise/projetos/payment_api/public
-#       - ./site.conf:/etc/nginx/conf.d/site.conf
-#   links:
-#     - php
-# php:
-#   image: php:7-fpm
-#   volumes:
-#     - ./home/laise/projetos/payment_api/public
-
 slim:
   image: sinuraya/slim-php7:latest
   ports:
