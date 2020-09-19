@@ -13,7 +13,7 @@ class SignUpController
     public function handle($http_request)
     {
         $request = json_decode($http_request);
-        $requiredFields = array('name', 'cpf');
+        $requiredFields = array('name', 'cpf', 'email' , 'password', 'password_confirmation');
 
         foreach ($requiredFields as $field) 
         {
