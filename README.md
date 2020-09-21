@@ -58,4 +58,10 @@ $ docker-compose up -d
   ```bash
 $ docker-compose down -v
 ```
+
+### Ideia de Arquitetura
 ![](https://github.com/laisevn/dalek/blob/master/Payment_Diagram.png)
+
+
+### Melhorias
+[Proposta de Melhorias no Notion e análise de Tecnologias](https://www.notion.so/laise/Picpay-Teste-API-Fluxo-Pagamento-85590975cf6f4915b1cd485893445de5)
