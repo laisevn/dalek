@@ -59,3 +59,5 @@ $ docker-compose up -d
 $ docker-compose down -v
 ```
 
+<img src=”https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1#G1dmtWvtLe51jzkILSFX5Nh6U21KiDSVx5”>
+
