@@ -1,9 +1,5 @@
 <?php declare(strict_types=1);
 
-use Medoo\Medoo;
-use PDO;
-use PDOException;
-
 require __DIR__ . './../vendor/autoload.php';
 require __DIR__ . './../src/Main/Container.php';
 require __DIR__ . './../src/Main/DotEnv.php';
