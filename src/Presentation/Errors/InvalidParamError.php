@@ -6,7 +6,7 @@ require __DIR__ . './../../../vendor/autoload.php';
 
 use Error;
 
-final class MissingParamError extends Error
+final class InvalidParamError extends Error
 {
 
     public function __construct(string $paramName, $code = 400)
@@ -17,6 +17,6 @@ final class MissingParamError extends Error
 
     private function message($paramName)
     {
-        return "Missing param: $paramName";
+        return "Inavalid param:   $paramName";
     }
 }

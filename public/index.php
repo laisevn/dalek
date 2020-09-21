@@ -1,15 +1,13 @@
-<?php
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
-use Slim\Factory\AppFactory;
+<?php declare(strict_types=1);
 
-require __DIR__ . '/../vendor/autoload.php';
+use Medoo\Medoo;
+use PDO;
+use PDOException;
 
-$app = AppFactory::create();
-
-$app->get('/', function (Request $request, Response $response, $args) {
-    $response->getBody()->write("Hello laise!");
-    return $response;
-});
-
+require __DIR__ . './../vendor/autoload.php';
+require __DIR__ . './../src/Main/Container.php';
+require __DIR__ . './../src/Main/DotEnv.php';
+// require __DIR__ . './../src/Main/Middlewares.php';
+require __DIR__ . './../src/Main/NotFound.php';
+require __DIR__ . './../src/routes.php';
 $app->run();
