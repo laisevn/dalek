@@ -4,18 +4,15 @@ namespace Infra\Db\MySQL\AccountRepository;
 
 use Data\Protocols\AddAccountRepository;
 use Domain\UseCase\AddAccountModel;
-use Infra\DB\MySQL\Utils\DbConnection;
+use Infra\DB\MySQL\Utils\MysqlConnection;
 
 class AccountMySQLRepository implements AddAccountRepository
 {
-  public function add(AddAccountModel $accountData): String
+  public function add(String $accountData) : String
   {
-    $database = new DbConnection();
+    $databaseConnection = new MysqlConnection();
+    $data = $databaseConnection->insert('accounts', $accountData);
 
-    $dataDecoded = json_decode($accountData, true);
-    $data = $database->insert('account',$dataDecoded);  
-    
-    $account = json_encode($database->getCollection('account'));
-    return $account;
+    return $data;
   } 
 }

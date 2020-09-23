@@ -18,6 +18,7 @@ final class AddAccountTable extends AbstractMigration
                 ->addColumn('password', 'string')
                 ->addColumn('password_confirmation', 'string')
                 ->addColumn('created', 'datetime')
+                ->addColumn('updated', 'datetime')
                 ->create();
     }
 }

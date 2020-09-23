@@ -7,5 +7,5 @@ use Domain\UseCase\AddAccountModel;
 
 interface AddAccountRepository
 {
-  public function add(AddAccountModel $accountData): String;
+  public function add(String $accountData): String;
 }

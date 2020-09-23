@@ -17,6 +17,7 @@ class AccountSeeder extends AbstractSeed
                 'password' => 'password123',
                 'password_confirmation' => 'password123',
                 'created' => date('Y-m-d H:i:s'),
+                'updated' => date('Y-m-d H:i:s'),
             ],[
                 'name' => 'Jessica Jones',
                 'email' => 'jessica@example.com',
@@ -25,6 +26,7 @@ class AccountSeeder extends AbstractSeed
                 'password' => '12345password',
                 'password_confirmation' => '12345password',
                 'created' => date('Y-m-d H:i:s'),
+                'updated' => date('Y-m-d H:i:s'),
             ]
         ];
 
