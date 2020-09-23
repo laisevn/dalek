@@ -59,5 +59,9 @@ $ docker-compose up -d
 $ docker-compose down -v
 ```
 
-<img src=”https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1#G1dmtWvtLe51jzkILSFX5Nh6U21KiDSVx5”>
+### Ideia de Arquitetura
+![](https://github.com/laisevn/dalek/blob/master/Payment_Diagram.png)
 
+
+### Melhorias
+[Proposta de Melhorias no Notion e análise de Tecnologias](https://www.notion.so/laise/Picpay-Teste-API-Fluxo-Pagamento-85590975cf6f4915b1cd485893445de5)
