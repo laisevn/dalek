@@ -1,4 +1,4 @@
-version: '3'
+version: '3.4'
 
 services:
   nginx:
@@ -16,17 +16,17 @@ services:
   php-fpm:
     build: ./docker/
     container_name: php-container
-    links:
+    links: 
       - mysql
     environment:
       - PHP_FPM_ENABLE=1
       - PHP_FPM_SERVER_ADDR=php
       - PHP_FPM_SERVER_PORT=9000
       - PHP_FPM_TIMEOUT=${HTTPD_TIMEOUT_TO_PHP_FPM:-180}
-      - DB_HOST=localhost
-      - DB_NAME=payment_api
-      - DB_USER=root
-      - DB_PASS=
+      - DB_HOSTNAME=mysql
+      - DB_DATABASE=payment_api
+      - DB_USERNAME=root
+      - DB_PASSWORD=
 
     volumes:
      - ./:/var/www/html/payment_api/
@@ -34,16 +34,18 @@ services:
 
   mysql:
     image: mysql:8.0
+    cap_add:
+      - SYS_NICE  # CAP_SYS_NICE
     ports:
-      - 3307:3306
+      - 3307:3306 
     environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: "no"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
       MYSQL_DATABASE: payment_api
-      MYSQL_USER: mysql
-      MYSQL_PASSWORD: mysql
+      MYSQL_USER: root  
+      MYSQL_PASSWORD: 
       MYSQL_ROOT_PASSWORD: 
     volumes:
-      - my-data:/var/lib/mysql
+      - data:/var/lib/mysql
 
 volumes:
-  my-data:
+  data:

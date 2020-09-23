@@ -3,6 +3,7 @@
 FROM php:7.4-fpm
 
 RUN apt-get -y update
+RUN apt install netcat
 RUN curl -L -C - --progress-bar -o /usr/local/bin/composer https://getcomposer.org/composer.phar
 RUN chmod 755 /usr/local/bin/composer
 RUN apt-get install -y git

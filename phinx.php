@@ -11,10 +11,10 @@ return
         'default_environment' => 'development',
         'development' => [
             'adapter' => 'mysql',
-            'host' =>  'localhost',
+            'host' =>  '127.0.0.1',
             'name' => 'payment_api',
-            'user' => 'mysql',
-            'pass' => 'mysql',
+            'user' => 'root',
+            'pass' => '',   
             'port' => '3307',
             'charset' => 'utf8',
         ],
