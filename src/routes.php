@@ -27,3 +27,8 @@ $app->post('/signup', function (Request $request, Response $response, $args) {
     $slimAdapter = new SlimRouteAdapter(makeSignUpController());
     return $slimAdapter->adaptRoute($request, $response);
 });
+
+/** Transaction */
+$app->post('/transaction', function (Request $request, Response $response, $args) {
+    return '{"trnasaction:implementing"}';
+});
