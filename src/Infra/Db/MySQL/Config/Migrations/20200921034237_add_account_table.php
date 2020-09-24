@@ -13,12 +13,13 @@ final class AddAccountTable extends AbstractMigration
         $table = $this->table('accounts');
         $table->addColumn('name', 'string', ['limit' => 100])
                 ->addColumn('email', 'string')
-                ->addColumn('cpf', 'string')
+                ->addColumn('cpf', 'string', ['limit' => 20])
                 ->addColumn('cnpj', 'string',['limit' => 20])
                 ->addColumn('password', 'string')
                 ->addColumn('password_confirmation', 'string')
                 ->addColumn('created', 'datetime')
                 ->addColumn('updated', 'datetime')
+                ->addIndex(['email', 'cpf', 'cnpj'], ['unique' => true])
                 ->create();
     }
 }

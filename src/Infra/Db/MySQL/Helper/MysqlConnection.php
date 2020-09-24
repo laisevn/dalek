@@ -30,6 +30,8 @@ class MysqlConnection
     {
         $dataDecoded = json_decode($data, true);
 
+        var_dump($dataDecoded);
+
         $data = $this->database->insert($table, [
             "name" => $dataDecoded['body']['"name"'],
             "cpf" => $dataDecoded['body']['"cpf"'],
