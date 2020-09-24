@@ -32,16 +32,18 @@ class SignUpController implements Controller
         $requiredFields = array('name', 'cpf', 'email', 'password', 'password_confirmation');
 
         foreach ($requiredFields as $field) {
-            if (empty($request['body']['{$field}'])) {
-                $response = badRequest(new MissingParamError($field));
+            if (empty($request['body'][$field])) {
+                return badRequest(new MissingParamError($field));
             }
         }
 
-        new EncryptAdapter($request['body']['"passeord"']);
-        $isValid = $this->emailValidator->isValid($request['body']['"email"']);
+        new EncryptAdapter($request['body']['password']);
+
+        $isValid = $this->emailValidator->isValid($request['body']['email']);
+
 
         if ($isValid == false) {
-            return $response = badRequest(new InvalidParamError('email'));
+            return badRequest(new InvalidParamError('email'));
         } 
 
         $this->addAccount->add(json_encode($request));

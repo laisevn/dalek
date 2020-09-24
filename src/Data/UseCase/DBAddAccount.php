@@ -16,8 +16,8 @@ class DBAddAccount implements AddAccount
         $addAccountRepository = new AccountMySQLRepository();
         $encryper = new EncryptAdapter();
         $decodedData = json_decode($accountData, true);
-        $encryptedPassword = $encryper->encrypt($decodedData['body']['"password"']);
-        $decodedData['body']['"password"'] = $encryptedPassword;
+        $encryptedPassword = $encryper->encrypt(json_encode($decodedData['body']['password']));
+        $decodedData['body']['password'] = $encryptedPassword;
 
         $account = $addAccountRepository->add(json_encode($decodedData));
        

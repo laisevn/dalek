@@ -15,11 +15,12 @@ class SlimRouteAdapter
     }
     public function adaptRoute(Request $request, Response $response)
     {
-
-      $httpRequest = json_encode(['body' => $request->getQueryParams()]);
+      $httpRequest = json_encode(['body' => $request->getParsedBody()]);
       $httpResponse = $this->controller->handle($httpRequest);
-      $response->withStatus(json_decode($httpResponse, true)['statusCode']);
+    
       $response->getBody()->write(json_decode($httpResponse, true)['body']);
-      return $response;
+      return $response
+                ->withHeader('Content-Type', 'application/json')
+                ->withStatus(json_decode($httpResponse, true)['statusCode']);
     }
 }

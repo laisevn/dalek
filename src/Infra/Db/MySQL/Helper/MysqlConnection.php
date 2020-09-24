@@ -3,8 +3,6 @@
 namespace Infra\DB\MySQL\Utils;
 
 use Medoo\Medoo;
-use ParagonIE\EasyDB\Factory;
-use DI\Container;
 
 class MysqlConnection
 {
@@ -30,17 +28,10 @@ class MysqlConnection
     {
         $dataDecoded = json_decode($data, true);
 
-        var_dump($dataDecoded);
+        $data = $this->database->insert($table, [$dataDecoded['body']]);
 
-        $data = $this->database->insert($table, [
-            "name" => $dataDecoded['body']['"name"'],
-            "cpf" => $dataDecoded['body']['"cpf"'],
-            "cnpj" => $dataDecoded['body']['"cnpj"'],
-            "email" =>$dataDecoded['body']['"email"'],
-            "password" => $dataDecoded['body']['"password"'],
-        ]);
         return json_encode($this->database->select($table, '*', [
-            'id' => $this->database->id()   
+            'id' => $this->database->id(),
         ]));
     }
 
