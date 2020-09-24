@@ -118,7 +118,7 @@ Get account info.
 Successfulcreated: {
   "body": {
     "name": "Relampago Marquinhos",
-    "balance": "R$ 1.2000,00",
+    "balance": "1.2000,00",
     "extract": "1235123232323",
   }
 }
