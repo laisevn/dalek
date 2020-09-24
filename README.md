@@ -37,6 +37,12 @@ Esta estrutura não parece tão produtiva noinício quanto usar uma framework co
 					<li>
 						Slim - Middleware - PSR-7 - HTTP Router
 					</li>
+					<li>
+						PHP-DI - Dependency Injection Containers
+					</li>
+					<li>
+						Medoo - Query Abstraction
+					</li>
 				</ul>
 			</td>
 		</tr>
