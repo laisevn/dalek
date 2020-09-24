@@ -65,6 +65,66 @@ $ docker-compose up -d
 $ docker-compose down -v
 ```
 
+### Testando a aplicação
+
+## Home API
+## `GET /`
+Gets a info about API.
+===
+* Status: `200`
+```
+{"api":"payment-api","version":"0.1 Beta","timestamp":1600966072}
+```
+## `POST /signup`
+Create a new user payment.
+* `?name=Relâmpago Marquinhos` // The name of the customer or merchant
+* `?email=rapidinho@example.com` // Email is unique 
+* `?cpf=cpf` // If for customer or merchant 
+* `?email=123456789` // Is only for merchant
+* `?password=123password` // Is encrypted
+* `?confirm_password=123password` // Is encrypted
+===
+* Status: `200`
+```
+Successfulcreated: {
+  "body": {
+    "name": "Relampago Marquinhos",
+    "email": "rapidinho@gmail.com",
+    "cpf": "1235123232323",
+    "cnpj": "1234533323233",
+    "password": "123",
+    "password_confirmation": "123"
+  }
+}
+```
+## `POST /transaction`
+Create a new payment.
+* `?value=100.00` //The only information exposed to aplication
+* `?payer=4` // Secret key for user only see the information about your account
+* `?payee=5` // Secret key for user only see the information about your account
+===
+* Status: `200`
+```
+
+```
+
+## `GET /account`
+Get account info.
+* `?uui=Account UUID` //The only information exposed to aplication
+* `?secretKey=` // Secret key for user only see the information about your account
+===
+* Status: `200`
+```
+Successfulcreated: {
+  "body": {
+    "name": "Relampago Marquinhos",
+    "balance": "R$ 1.2000,00",
+    "extract": "1235123232323",
+  }
+}
+```
+
+
 ### Ideia de Arquitetura
 ![](https://github.com/laisevn/dalek/blob/master/Payment_Diagram.png)
 
