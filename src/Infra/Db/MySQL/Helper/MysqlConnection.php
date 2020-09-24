@@ -29,11 +29,17 @@ class MysqlConnection
     public function insert(String $table, String $data): String
     {
         $dataDecoded = json_decode($data, true);
-        $data = $this->database->insert($table, $dataDecoded);
 
-        return $this->database->select($table, '*', [
-            'id' => $this->database->id()   
+        $data = $this->database->insert($table, [
+            "name" => $dataDecoded['body']['"name"'],
+            "cpf" => $dataDecoded['body']['"cpf"'],
+            "cnpj" => $dataDecoded['body']['"cnpj"'],
+            "email" =>$dataDecoded['body']['"email"'],
+            "password" => $dataDecoded['body']['"password"'],
         ]);
+        return json_encode($this->database->select($table, '*', [
+            'id' => $this->database->id()   
+        ]));
     }
 
     public function update(String $data): String

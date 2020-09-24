@@ -7,7 +7,7 @@ use Defuse\Crypto\KeyProtectedByPassword;
 
 class EncryptAdapter implements Encrypter
 {
-    public function encrypt(string $value): string
+    public function encrypt(String $value): String
     {
         $protected_key = KeyProtectedByPassword::createRandomPasswordProtectedKey($value);
         $protected_key_encoded = $protected_key->saveToAsciiSafeString();

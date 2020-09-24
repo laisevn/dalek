@@ -8,13 +8,12 @@ use Data\UseCase\DBAddAccount;
 use Infra\Criptography\EncryptAdapter;
 use Infra\Db\MySQL\AccountRepository\AccountMySQLRepository;
 
-function makeSignUpController(): SignUpController
+function makeSignUpController()
 {
 
-  $emailValidatorAdapter = new EmailValidatorAdapter;
+  $emailValidatorAdapter = new EmailValidatorAdapter();
   $encryptAdapter = new EncryptAdapter();
   $accountMysqlRepository = new AccountMySQLRepository();
-  $dbAddAccount = new DBAddAccount($encryptAdapter, $accountMysqlRepository);
-  
-  return $signUpController = new SignUpController($emailValidatorAdapter, $dbAddAccount);
+  $dbAddAccount = new DBAddAccount();
+  return new SignUpController($emailValidatorAdapter, $dbAddAccount);
 }

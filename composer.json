@@ -12,7 +12,8 @@
         "defuse/php-encryption": "^2.2",
         "catfan/medoo": "^1.7",
         "robmorgan/phinx": "^0.12.4",
-        "php-di/php-di": "^6.2"
+        "php-di/php-di": "^6.2",
+        "nette/utils": "^3.1"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "3.*",

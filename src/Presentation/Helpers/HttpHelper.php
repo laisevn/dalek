@@ -4,17 +4,21 @@ namespace Presentation\Helpers;
 
 use Error;
 
-final class BadRequest
+function badRequest(Error $error): string
 {
-    private $error;
-
-    public static function bodyJson(Error $error): string
-    {
-        return json_encode(
-            (object) [
-                'statusCode' => 400,
-                'body' => $error->getMessage(),
-            ]
-        );
-    }
+    return json_encode([
+            'statusCode' => 400,
+            'body' => $error->getMessage(),
+        ]
+    );
 }
+
+function success(String $data): string
+{
+    return json_encode([
+            'statusCode' => 200,
+            'body' => "Successful created: ${data}",
+        ]
+    );
+}
+
