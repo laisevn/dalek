@@ -5,7 +5,7 @@ namespace Infra\Criptography;
 use Data\Protocols\Encrypter;
 use Defuse\Crypto\KeyProtectedByPassword;
 
-class Criptography implements Encrypter
+class EncryptAdapter implements Encrypter
 {
     public function encrypt(string $value): string
     {
