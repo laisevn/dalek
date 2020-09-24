@@ -108,21 +108,6 @@ Create a new payment.
 
 ```
 
-## `GET /account`
-Get account info.
-* `?uui=Account UUID` //The only information exposed to aplication
-* `?secretKey=` // Secret key for user only see the information about your account
-===
-* Status: `200`
-```
-Successfulcreated: {
-  "body": {
-    "name": "Relampago Marquinhos",
-    "balance": "1.2000,00",
-    "extract": "1235123232323",
-  }
-}
-```
 
 
 ### Ideia de Arquitetura
