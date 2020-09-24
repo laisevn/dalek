@@ -1,23 +1,21 @@
-<?php declare(strict_types=1);
+<?php declare (strict_types = 1);
 
 namespace Domain\UseCase;
 
-use Domain\Models\AccountModel;
-
 interface AddAccountModel
- /* To implement */
+/* To implement */
 
- /***
-  * Attributes
-    public function attributtes() : String;
-    public function attributtes();
-  */
+/***
+ * Attributes
+public function attributtes() : String;
+public function attributtes();
+ */
+
 {
-    public function __contruct() : Array;
+    public function __contruct(): array;
 }
-
 
 interface AddAccount
 {
-    public function add(String $account) : String;
+    public function add(String $account): String;
 }

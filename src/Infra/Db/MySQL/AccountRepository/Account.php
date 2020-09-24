@@ -3,7 +3,6 @@
 namespace Infra\Db\MySQL\AccountRepository;
 
 use Data\Protocols\AddAccountRepository;
-use Domain\UseCase\AddAccountModel;
 use Infra\DB\MySQL\Utils\MysqlConnection;
 
 class AccountMySQLRepository implements AddAccountRepository

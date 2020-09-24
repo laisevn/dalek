@@ -1,9 +1,8 @@
 <?php
 
-use Slim\Psr7\Request;
-use Slim\Psr7\Response;
+namespace Presentation\Protocols;
 
 interface Controller
 {
-    public function handle(Request $request): Response;
+    public function handle(String $request);
 }
