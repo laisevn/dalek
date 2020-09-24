@@ -23,9 +23,9 @@ class DBAddAccount implements AddAccount
     }
     public function add(String $accountData): String
     {
-        // $encryptedPassword = $this->encrypter->encrypt($accountData->password);
-        // $accountData->password = $encryptedPassword;  
-        // $account = $this->addAccountRepository.add($accountData);
-        // return $account;
+        $encryptedPassword = $this->encrypter->encrypt($accountData->password);
+        $accountData->password = $encryptedPassword;  
+        $account = $this->addAccountRepository.add($accountData);
+        return $account;
     }
 }
