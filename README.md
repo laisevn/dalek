@@ -115,42 +115,5 @@ Create a new payment.
 
 
 ### Melhorias
-Proposta de Melhorias no Notion e análise de Tecnologias
+Proposta de Melhorias 
 
-## **Escolhas de tecnologias**
-
-### Crockroach DB
-
-**Porque?** 
-
-- **Argumentação detalhada**
-
-    Imaginando que este fluxo de transferência entre lojistas e usuários seja uma versão MVP  de um fluxo complexo de pagamentos e transferências, tenho que me preocupar com algumas questões :  segurança e  escalabilidade. Em um banco noSQL, como o MongoDB, tenho  a vantagem de escalabilidade horizontal e performance, porém não tenho a segurança de um banco de dados transacional de manter a integridade de scheemas e indexes. Mesmo com a implementação de bloqueios específicos, não pode-se afirmar que o MongoDB trabalha com isolamento. 
-
-    O PostgresDB é uma opção muito poderosa e aparentemente segura, com todas as vantagens de de um banco relacional, segundo os princípios ACID. Porém só aparentemente. Nenhuma tecnologia é uma bala de prata e os bancos de dados relacionais mais populares, como o Postgres, permitem a execução de transações com um nível mais fraco de isolamento, priorizando desempenho ao custo de segurança por padrão, o que expõe os programas a uma série de anomalias relacionadas a operações concorrentes. O ônus fica com os programadores em “setar” sua transação sensível para o nível mais alto de isolamento, e ele talvez falhe em fazê-lo. O CockroachDB fornece o modulo SERIALIZABLE com isolamento forte por padrão para garantir a aplicação sempre veja os dados que espera.
-
-     
-
-    REFERENCIA: *ACIDRain: Concurrency-Related Attacks on Database-Backed Web Applications*;  **[http://www.bailis.org/papers/acidrain-sigmod2017.pdf](http://www.bailis.org/papers/acidrain-sigmod2017.pdf)
-
-**Prós:** 
-
-- Fornece escalabilidade sem sacrificar a funcionalidade SQL.
-- Uso de JSONB para armazenar metadados.
-- Suporte a JSON 2.0.
-- Compatibilidade e suporte com PostgresSQL.
-- Bom balanço de performance x segurança
-- Suporte para linguagens PHP, Go, Rust, Ruby, Javascript, Java
-
-**Contras:**  
-
-- Não é  indicado para OLAP
-- Latência de um sistema distribuído. Apesar de ser impressionante os números e comparações de benchmark para o CrockroachDB, ainda não atinge os níveis de um sistema em uma única máquina.
-- Curva de aprendizagem  ( Principalmente para quem não tem nenhuma noção de banco de dados NoSQL, sistemas distribuídos  e API )
-- Documentação só em inglês
-
-### **Overview:**
-
-- **Comparação de features MongoDB x PostgreSQL x CockroachDB**
-
-    [feature's ](https://www.notion.so/1b4ee3d46cf6471fb89653bbd64a5549)
